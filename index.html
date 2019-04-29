@@ -21,7 +21,7 @@
     //Haptics.vibrate(200);
     var x = document.getElementById("myNumber").value;
     document.getElementById("demo").innerHTML = x;
-    var mediumPWM = Haptics.createPatternPWM(30, 10);
+    var mediumPWM = Haptics.createPatternPWM(x, 10-x);
     mediumPWM(500);
   }
   // function myFunction() {
