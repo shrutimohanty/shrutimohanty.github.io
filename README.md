@@ -1,2 +1,2 @@
-# vibrator.github.io
+# shrutimohanty.github.io
 Project-CMPSC597
