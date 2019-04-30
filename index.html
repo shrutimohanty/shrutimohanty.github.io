@@ -17,32 +17,13 @@
 
 
   <script>
-    function myFunction() {
+     function myFunction() {
     //Haptics.vibrate(200);
     var x = document.getElementById("myNumber").value;
     document.getElementById("demo").innerHTML = x;
-    //var mediumPWM = Haptics.createPatternPWM(2, 100);
-    //mediumPWM(5000);
-
-    var freq = 5+1;
-    var on = 500, duration = 1000;
-    var off = duration - on;
-    Haptics.pwm(duration, on, off);
-
-    for (var i = 1; i < freq; i++) {
-        on = on + i*100;
-        off = duration - on;
-        Haptics.pwm(duration, on, off);
-
-     }
-    for (var i = 1; i < freq; i++) {
-       on = on - i*100;
-       off = duration - on;
-       Haptics.pwm(duration, on, off);
-
-    }
-    
-  }
+     var mediumPWM = Haptics.createPatternPWM(3000, 2000);
+    mediumPWM(1000000);
+   }
   // function myFunction() {
   //       var on = document.getElementById("myNumber").value;
   //       var off = 11-on;
