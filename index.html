@@ -23,23 +23,11 @@
     document.getElementById("demo").innerHTML = x;
      //var mediumPWM = Haptics.createPatternPWM(3000, 2000);
     //mediumPWM(1000000);
-       var freq = 8000+1;
-    var on = 0, duration = 10000;
-    var off = duration - on;
-    //Haptics.pwm(duration, on, off);
+       var vibtime = 1000;
+       var pause = 1000;
+      Haptics.vibrate([vibtime, pause, vibtime, pause, vibtime,pause,vibtime, pause]); 
 
-    for (var i = 0; i < freq; i++) {
-        on = on + i*1;
-        off = duration - on;
-        Haptics.pwm(duration, on, off);
-
-     }
-    for (var i = 0; i < freq; i++) {
-       on = on - i*1;
-       off = duration - on;
-       Haptics.pwm(duration, on, off);
-
-    }
+    
    }
   // function myFunction() {
   //       var on = document.getElementById("myNumber").value;
