@@ -41,7 +41,14 @@
 
                 }
               else {
-                time = time +1;
+                if (i == 7)
+                {if(digit == 0)
+                    pattern.push(time*vibtime);
+                  else
+                    pattern.push(time*pause);
+                }
+                else
+                  time = time +1;
               }
 
       }
