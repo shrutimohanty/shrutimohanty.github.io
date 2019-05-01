@@ -24,7 +24,7 @@
     //mediumPWM(1000000);
         var vibtime = 1000;
         var pause = 1000;
-        Haptics.vibrate([4*vibtime, pause, 4*vibtime, pause, 4*vibtime,pause,4*vibtime, pause,4*vibtime,10*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause]); 
+        Haptics.vibrate([vibtime, pause, vibtime, 2*pause, 3*vibtime,2*pause,vibtime, pause,vibtime, pause, vibtime, 2*pause, 3*vibtime,2*pause,vibtime, pause]);//,4*vibtime,10*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause]); 
         
         var x = document.getElementById("myNumber").value;
         document.getElementById("demo").innerHTML = x;
