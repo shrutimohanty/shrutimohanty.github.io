@@ -35,9 +35,9 @@
     //var mediumPWM = Haptics.createPatternPWM(2, 100);
     //mediumPWM(5000);
 
-    var freq = 50+1;
-    var on = 10, duration = 1000;
-    var percent = 100;
+    var freq = 500+1;
+    var on = 100, duration = 1000;
+    var percent = 10;
     var off = on*(percent/100);
    // Haptics.pwm(duration, on, off);
     document.getElementById("demo1").innerHTML = on;
@@ -46,7 +46,7 @@
         //document.getElementById("demo1").innerHTML = on;
         on = (on + i*10);
         //duration = duration*i*10;
-        off = Math.ceil(Math.abs(on-i*10));
+        //off = Math.ceil(Math.abs(on-i*10));
         Haptics.pwm(duration, on, off);
 
      }
