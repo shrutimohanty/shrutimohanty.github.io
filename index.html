@@ -19,14 +19,15 @@
   <script>
      function myFunction() {
     //Haptics.vibrate(200);
-    var x = document.getElementById("myNumber").value;
-    document.getElementById("demo").innerHTML = x;
+   
      //var mediumPWM = Haptics.createPatternPWM(3000, 2000);
     //mediumPWM(1000000);
-       var vibtime = 1000;
-       var pause = 1000;
-      Haptics.vibrate([vibtime, pause, vibtime, pause, vibtime,pause,vibtime, pause]); 
-
+        var vibtime = 1000;
+        var pause = 1000;
+        Haptics.vibrate([4*vibtime, pause, 4*vibtime, pause, 4*vibtime,pause,4*vibtime, pause,4*vibtime,10*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause]); 
+        
+        var x = document.getElementById("myNumber").value;
+        document.getElementById("demo").innerHTML = x;
     
    }
   // function myFunction() {
