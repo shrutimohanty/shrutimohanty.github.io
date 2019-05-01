@@ -46,8 +46,8 @@
         document.getElementById("demo1").innerHTML = on;
         on = (on + i*10);
         duration = duration*i*10;
-        percent = Math.ceil(percent/(i*10));
-        off = on*(percent/100);
+        //percent = Math.ceil(percent/(i*10));
+       // off = on*(percent/100);
         Haptics.pwm(duration, on, off);
 
      }
