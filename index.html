@@ -17,34 +17,45 @@
 
 
   <script>
-     function myFunction() {
-    //Haptics.vibrate(200);
-   
-     //var mediumPWM = Haptics.createPatternPWM(3000, 2000);
-    //mediumPWM(1000000);
-        var vibtime = 3*1000;
-        var pause = 3*1000;
-        Haptics.vibrate([vibtime, pause, vibtime, 2*pause, 3*vibtime,2*pause,vibtime, pause]);//,4*vibtime,10*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause]); 
-        
-        var x = document.getElementById("myNumber").value;
-        document.getElementById("demo").innerHTML = x;
+     //function myFunction() {
     
-   }
-  // function myFunction() {
-  //       var on = document.getElementById("myNumber").value;
-  //       var off = 11-on;
-  //       var pattern = [on];
-  //       var duration -= on;
-  //
-  //       while (duration > 0) {
-  //           duration -= off;
-  //           duration -= on;
-  //           pattern.push(off);
-  //           pattern.push(on);
-  //       }
-  //
-  //       vibrate(pattern);
-  //   }
+   
+      //  var vibtime = 3*1000;
+        //var pause = 3*1000;
+        //Haptics.vibrate([vibtime, pause, vibtime, 2*pause, 3*vibtime,2*pause,vibtime, pause]);//,4*vibtime,10*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause]); 
+        
+       // var x = document.getElementById("myNumber").value;
+        //document.getElementById("demo").innerHTML = x;
+    
+   //}
+  function myFunction() {
+    var items = [];
+    var x = document.getElementById("myNumber").value;
+    document.getElementById("demo").innerHTML = x;
+    //var mediumPWM = Haptics.createPatternPWM(2, 100);
+    //mediumPWM(5000);
+
+    var freq = 500+1;
+    var on = 10, duration = 100;
+    var off = duration - on;
+    Haptics.pwm(duration, on, off);
+
+    for (var i = 1; i < freq; i++) {
+        document.getElementById("demo1").innerHTML = on;
+        on = (on + i*10)%duration;
+        off = duration - on;
+        Haptics.pwm(duration, on, off);
+
+     }
+    for (var j = 1; j< freq; j++) {
+      document.getElementById("demo1").innerHTML = on;
+      on = Math.abs((on - i*10)%duration);
+      off = duration - on;
+      Haptics.pwm(duration, on, off);
+
+    }
+
+  }
 
   </script>
 </body>
