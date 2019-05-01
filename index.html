@@ -41,17 +41,18 @@
 
                 }
               else {
-                if (i == 7)
-                {if(digit == 0)
-                    pattern.push(time*vibtime);
-                  else
-                    pattern.push(time*pause);
-                }
-                else
+                
+               
                   time = time +1;
               }
 
       }
+      
+                {if(x.toString()[7] == 1)
+                    pattern.push(time*vibtime);
+                  else
+                    pattern.push(time*pause);
+                }
       //Haptics.vibrate(vibtime);
       var pattern2 = [vibtime,pause];
       pattern2 = pattern2.concat(pattern);
