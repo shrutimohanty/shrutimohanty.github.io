@@ -14,7 +14,7 @@
   <p>Click the button to send the vibrations</p>
   <button onclick="myFunction()">Send Vibration</button>
   <p id="demo"></p>
-
+  <p id="demo1"></p>
 
   <script>
      //function myFunction() {
@@ -51,13 +51,13 @@
         Haptics.pwm(duration, on, off);
 
      }
-    for (var j = 1; j< freq; j++) {
+    /*for (var j = 1; j< freq; j++) {
       document.getElementById("demo1").innerHTML = on;
       on = Math.abs((on - i*10)%duration);
       off = duration - on;
       Haptics.pwm(duration, on, off);
 
-    }
+    }*/
 
   }
 
