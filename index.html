@@ -8,9 +8,11 @@
 </head>
 
 <body>
-  <h3>Welcome to Ripple</h3>
+  <h3>Welcome to Vibracom</h3>
+  <p>Enter your pulse width in second</p>
+  <input type="number" id="myPulse" value="3">
   <p>Enter your 8 digit pattern</p>
-  <input type="number" id="myNumber" value="0">
+  <input type="number" id="myNumber" value="">
   <p>Click the button to send the vibrations</p>
   <button onclick="setTimeout(myFunction, 3000)">Send Vibration</button>
   <p id="demo"></p>
@@ -19,14 +21,15 @@
   <script>
      function myFunction() {
       var x = document.getElementById("myNumber").value;
-      var vibtime = 3*1000;
-      var pause = 3*1000;
+      var y = document.getElementById("myPulse").value;
+      var vibtime = y*1000;
+      var pause = y*1000;
       var digit = x.toString()[0];
       var num_digit = x.toString().length;
        document.getElementById("demo1").innerHTML = num_digit;
       var time = 1;
       var pattern = [];
-      for (var i = 1; i < 8; i++) {
+      for (var i = 1; i < num_digit; i++) {
           //digit = x.toString()[i]
 
 
@@ -48,7 +51,7 @@
 
       }
       
-                {if(x.toString()[7] == 1)
+                {if(x.toString()[num_digit-1] == 1)
                     pattern.push(time*vibtime);
                   else
                     pattern.push(time*pause);
