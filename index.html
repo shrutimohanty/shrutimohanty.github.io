@@ -26,15 +26,15 @@
        var freq = 8000+1;
     var on = 1000, duration = 10000;
     var off = duration - on;
-    Haptics.pwm(duration, on, off);
+    //Haptics.pwm(duration, on, off);
 
-    for (var i = 1; i < freq; i++) {
+    for (var i = 0; i < freq; i++) {
         on = on + i*1;
         off = duration - on;
         Haptics.pwm(duration, on, off);
 
      }
-    for (var i = 1; i < freq; i++) {
+    for (var i = 0; i < freq; i++) {
        on = on - i*1;
        off = duration - on;
        Haptics.pwm(duration, on, off);
