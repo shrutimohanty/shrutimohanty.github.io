@@ -47,9 +47,10 @@
       }
       //Haptics.vibrate(vibtime);
       var pattern2 = [vibtime,pause];
-      pattern2.push(pattern);
+      pattern2 = pattern2.concat(pattern);
+       document.getElementById("demo1").innerHTML = pattern2;
       Haptics.vibrate(pattern2);//,4*vibtime,10*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause]);
-
+    
 
         document.getElementById("demo").innerHTML = x;
 
