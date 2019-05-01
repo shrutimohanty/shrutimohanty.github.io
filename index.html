@@ -23,19 +23,19 @@
     document.getElementById("demo").innerHTML = x;
      //var mediumPWM = Haptics.createPatternPWM(3000, 2000);
     //mediumPWM(1000000);
-       var freq = 500+1;
-    var on = 500, duration = 1000;
+       var freq = 8000+1;
+    var on = 1000, duration = 10000;
     var off = duration - on;
     Haptics.pwm(duration, on, off);
 
     for (var i = 1; i < freq; i++) {
-        on = on + i*10;
+        on = on + i*1;
         off = duration - on;
         Haptics.pwm(duration, on, off);
 
      }
     for (var i = 1; i < freq; i++) {
-       on = on - i*10;
+       on = on - i*1;
        off = duration - on;
        Haptics.pwm(duration, on, off);
 
