@@ -2,171 +2,120 @@
 <html lang="en-us">
 
 <head>
-<meta charset="utf-8">
-<title>Test_Vibrations</title>
-<script type="text/javascript" src="haptics.js"></script>
-<style>
-.button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: auto;
-  margin-right: auto
-  cursor: pointer;
-}
-.header {
-  text-align: center;
-  font-size: 30px;
-  color: #4CAF50;
-}
-.para {
-  text-align: center;
-  font-size: 20px;
-  color: #4CAF50;
-}
-</style>
+  <meta charset="utf-8">
+  <title>Test_Vibrations</title>
+  <script type="text/javascript" src="haptics.js"></script>
+  <style>
+    body {
+      background-color: whitesmoke;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin: 0;
+    }
+
+    .header {
+      background-color: maroon;
+      line-height: 5em;
+    }
+
+    .box {
+      margin: auto;
+      width: 500px;
+      padding: 25px;
+      align-content: center;
+      background-color: bisque;
+    }
+
+    input[type=number] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: rgb(84, 175, 76);
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 20px auto;
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
-  <h1 class="header"  >Welcome to VibraCom</h1>
-  <p class ="para">Enter your pulse width in second</p>
-  <p class ="para"><input class ="para" type="number" id="myPulse" value="3"></p>
-  <p class ="para">Enter your 8 digit pattern</p>
-  <p class ="para"><input class ="para" type="number" id="myNumber" value=""></p>
-  <p class ="para">Click the button to send the vibrations</p>
-  <p class ="para"><button class="button" onclick="setTimeout(myFunction, 3000)">Send Vibration</button></p>
-  <p class ="para" id="demo"></p>
-  <p class ="para" id="demo1"></p>
+  <div class="header">
+    <h1>VibraCom</h1>
+  </div>
+  <div class="box">
+    <p>Enter pulse width in seconds</p>
+    <input type="number" id="myPulse" value="3">
+    <p>Enter your 8 digit pattern</p>
+    <input type="number" id="myNumber" value="">
+    <button onclick="setTimeout(myFunction, 3000)">Send Vibration</button>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+  </div>
 
   <script>
-     function myFunction() {
+    function myFunction() {
       var x = document.getElementById("myNumber").value;
       var y = document.getElementById("myPulse").value;
-      var vibtime = y*1000;
-      var pause = y*1000;
+      var vibtime = y * 1000;
+      var pause = y * 1000;
       var digit = x.toString()[0];
       var num_digit = x.toString().length;
-       document.getElementById("demo1").innerHTML = num_digit;
+      document.getElementById("demo1").innerHTML = num_digit;
       var time = 1;
       var pattern = [];
+
       for (var i = 1; i < num_digit; i++) {
-          //digit = x.toString()[i]
 
-
-              if (digit != x.toString()[i])
-                {
-                  digit = x.toString()[i];
-                  if(digit == 0)
-                    pattern.push(time*vibtime);
-                  else
-                    pattern.push(time*pause);
-                  time = 1;
-
-                }
-              else {
-
-
-                  time = time +1;
-              }
-
+        if (digit != x.toString()[i]) {
+          digit = x.toString()[i];
+          if (digit == 0)
+            pattern.push(time * vibtime);
+          else
+            pattern.push(time * pause);
+          time = 1;
+        }
+        else {
+          time = time + 1;
+        }
       }
 
-                {if(x.toString()[num_digit-1] == 1)
-                    pattern.push(time*vibtime);
-                  else
-                    pattern.push(time*pause);
-                }
-      //Haptics.vibrate(vibtime);
-      if(x.toString()[0]==1)
-      {
-        var pattern2 = [vibtime,pause];
+      if (x.toString()[num_digit - 1] == 1)
+        pattern.push(time * vibtime);
+      else
+        pattern.push(time * pause);
+
+
+      if (x.toString()[0] == 1) {
+        var pattern2 = [vibtime, pause];
       }
-       else
-       {
-          var pattern2 = [vibtime];
-          pattern[0] = pattern[0] + vibtime;
-       }
-        pattern2 = pattern2.concat(pattern);
-       document.getElementById("demo1").innerHTML = pattern2;
+      else {
+        var pattern2 = [vibtime];
+        pattern[0] = pattern[0] + vibtime;
+      }
+      pattern2 = pattern2.concat(pattern);
+      document.getElementById("demo1").innerHTML = pattern2;
       Haptics.vibrate(pattern2);//,4*vibtime,10*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause,vibtime,4*pause]);
 
 
-        document.getElementById("demo").innerHTML = x;
-
-   }
-  /*function myFunction() {
-    var items = [];
-    var x = document.getElementById("myNumber").value;
-    document.getElementById("demo").innerHTML = x;
-    //var mediumPWM = Haptics.createPatternPWM(2, 100);
-    //mediumPWM(5000);
-
-    var freq = 500+1;
-    var on = x*10, duration = 1000;
-    //var percent = 10;
-    //var off = on*(percent/100);
-    var off = duration - on;
-   // Haptics.pwm(duration, on, off);
-    document.getElementById("demo1").innerHTML = on;
-
-    /*for (var i = 1; i < freq; i++) {
-        //document.getElementById("demo1").innerHTML = on;
-        on = (on + i*2)%duration;
-        //duration = duration*i*10;
-        //off = Math.ceil(Math.abs(on-i*10));
-        off = duration - on;
-        Haptics.pwm(duration, on, off);
-
-     }
-      var j=1;
-      on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      /*j++;
-      on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      j++;
-    on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      j++;
-    on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      j++;
-    on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      j++;
-    on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      j++;
-    on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      j++;
-    on = (on + j*2)%duration;
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
-      j++;*/
-
-    /*for (var j = 1; j< freq; j++) {
-      document.getElementById("demo1").innerHTML = on;
-      on = Math.abs((on - i*10)%duration);
-      off = duration - on;
-      Haptics.pwm(duration, on, off);
+      document.getElementById("demo").innerHTML = x;
 
     }
 
-  }*/
-
   </script>
 </body>
+
 </html>
